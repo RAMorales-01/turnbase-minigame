@@ -4,9 +4,13 @@ namespace Equipment
 {
     interface IConsumables
     {
-        char Type { get; }
+        enum Rank
+        {
+            C,
+            B,
+            A
+        }
         string Name { get; }
-        int UseValue { get; }
         int ItemPrice { get; }
     }
 }

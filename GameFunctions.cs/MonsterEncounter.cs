@@ -26,47 +26,47 @@ namespace GameFunctions
     }
     internal static class MonsterCreator
     {
-        internal static Monster CreateEasyLvl(int monsterNum)
+        internal static Monster CreateEasyLvl(int monster)
         {
-            switch(monsterNum)
+            switch(monster)
             {
                 case 1:
-                    return new MonstersEasyLvl(1);
+                    return new MonstersFloor01(1);
 
                 case 2:
-                    return new MonstersEasyLvl(2);
+                    return new MonstersFloor01(2);
                 
                 case 3:
-                    return new MonstersEasyLvl(3);
+                    return new MonstersFloor01(3);
                 
                 case 4:
-                    return new MonstersEasyLvl(4);
+                    return new MonstersFloor01(4);
 
                 case 5:
-                    return new MonstersEasyLvl(5);
+                    return new MonstersFloor01(5);
                 
                 default:
                     throw new ArgumentException("Invalid random number for easy monsters");
             }
         }
-        internal static Monster CreateMediumLvl(int monsterNum)
+        internal static Monster CreateMediumLvl(int monster)
         {
-            switch(monsterNum)
+            switch(monster)
             {
                 case 1:
-                    return new MonstersMediumLvl(1);
+                    return new MonstersFloor02(1);
 
                 case 2:
-                    return new MonstersMediumLvl(2);
+                    return new MonstersFloor02(2);
                 
                 case 3:
-                    return new MonstersMediumLvl(3);
+                    return new MonstersFloor02(3);
                 
                 case 4:
-                    return new MonstersMediumLvl(4);
+                    return new MonstersFloor02(4);
 
                 case 5:
-                    return new MonstersMediumLvl(5);
+                    return new MonstersFloor02(5);
                 
                 default:
                     throw new ArgumentException("Invalid random number for easy monsters");

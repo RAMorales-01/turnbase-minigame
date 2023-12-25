@@ -2,84 +2,61 @@ using System;
 
 namespace Equipment
 {
-    abstract class Weapon : IEquip
+    abstract class PlayerOffense : IEquipment
     {
-        private char _type;
-        private string _name = string.Empty;
-        private int _attackValue;
-        private string _wpnEffect = string.Empty;
-        private int _wpnPlusDamage;
-        private int _equipmentWeight;
-        private int _equipmentPrice;
-
-        public char Type
+        public enum Rank
         {
-            get { return _type; }
-            protected set { _type = value; }
+            C,
+            B,
+            A,
+            S
         }
-        public string Name
-        {
-            get { return _name; }
-            protected set { _name = value; }
-        }
-        public int AttackValue
-        {
-            get { return _attackValue; }
-            protected set { _attackValue = value; }
-        }
-        public string WpnEffect
-        {
-            get { return _wpnEffect; }
-            protected set { _wpnEffect = value; }
-        }
-        public int WpnPlusDamage
-        {
-            get { return _wpnPlusDamage; }
-            protected set { _wpnPlusDamage = value; }
-        }
-        public int EquipmentWeight
-        {
-            get { return _equipmentWeight; }
-            protected set { _equipmentWeight = value; }
-        }
-        public int EquipmentPrice
-        {
-           get { return _equipmentPrice; }
-           protected set { _equipmentPrice = value; } 
-        }
+        public string Name { get; protected set; } = string.Empty;
+        public int Damage { get; protected set; }
+        public bool HasExtraDmg { get; protected set; }
+        public int PlusDamage { get; protected set; }
+        public Rank EquipmentRank { get; internal set; }
+        public string EquipmentInfo { get; protected set; } = string.Empty;
+        public int EquipmentWeight { get; protected set; }
+        public int EquipmentPrice { get; protected set; }
     }
-    internal class Sword : Weapon 
+    internal class Sword : PlayerOffense 
     {
-        public Sword(int wpnRarity)
+        public Sword(int swordLvl)
         {
-            switch(wpnRarity)
+            switch(swordLvl)
             {
                 case 0:
-                    this.Type = 'W';
-                    this.Name = "Wooden Sword";
-                    this.AttackValue = 1;
-                    this.WpnEffect = "None";
+                    this.Name = "Rusted Sword";
+                    this.Damage = 2;
+                    this.HasExtraDmg = false;
+                    this.PlusDamage = 0;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
                     this.EquipmentWeight = 2;
-                    this.EquipmentPrice = 0; 
+                    this.EquipmentPrice = 0;
                     break;
                 
                 case 1:
-                    this.Type = 'W';
                     this.Name = "Iron Sword";
-                    this.AttackValue = 4;
-                    this.WpnEffect = "None";
-                    this.EquipmentWeight = 5;
-                    this.EquipmentPrice = 50; 
+                    this.Damage = 4;
+                    this.HasExtraDmg = false;
+                    this.PlusDamage = 0;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 3;
+                    this.EquipmentPrice = 150;
                     break;
                 
                 case 2:
-                    this.Type = 'W';
                     this.Name = "Steel Sword";
-                    this.AttackValue = 5;
-                    this.WpnEffect = "+1 dmg to goblins.";
-                    this.WpnPlusDamage = 1;
-                    this.EquipmentWeight = 8;
-                    this.EquipmentPrice = 150; 
+                    this.Damage = 5;
+                    this.HasExtraDmg = true;
+                    this.PlusDamage = 1;
+                    this.EquipmentRank = Rank.B;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 5;
+                    this.EquipmentPrice = 350;
                     break;
             }
         }

@@ -2,9 +2,15 @@ using System;
 
 namespace Equipment
 {
-    interface IEquip
+    interface IEquipment
     {
-        char Type { get; }
+        enum Rank
+        {
+            C,
+            B,
+            A,
+            S
+        } 
         string Name { get; }
         int EquipmentWeight { get; }
         int EquipmentPrice { get; }

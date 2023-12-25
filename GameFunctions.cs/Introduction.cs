@@ -104,9 +104,20 @@ namespace GameFunctions
         /// </summary>
         private static void GameInstructions()
         {
-            // Here goes the game instructions
             Console.Clear();
-            Console.WriteLine("TEST: display the game instructions\n"); // remove after
+            Console.WriteLine("Welcome to the game instructions\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("The game consist of a simple turn base combat, the player starts");
+            Console.WriteLine("with basic equipment and some gold to buy new equipment.\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("The player must traverse each floor of the tower and survive five rounds, before be able to");
+            Console.WriteLine("to move to the next floor.\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("The player cannot heal during the five rounds, only AFTER surviving the five rounds and the only");
+            Console.WriteLine("by buying the healing potions on the shop with money earned in each battle.\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("After clearing 2 floors the player must defeat a boss to proceed to the next set of floors, if the player dies");
+            Console.WriteLine("before defeating the boss, it will lose half of collected gold and all the equipment goes back to the starting equipment.");
         }
         #endregion
     }

@@ -11,40 +11,16 @@ namespace GameCharacters
         private int _defaultOffense;
         private int _goldDrop;
 
-        public int MonsterID
-        {
-            get { return _monsterId; }
-            protected set { _monsterId = value; }
-        }
-        public string Name
-        {
-            get { return _name; }
-            protected set { _name = value; }
-        }
-        public int HP
-        {
-            get { return _hp; }
-            protected set { _hp = value; }
-        }
-        public int DefaultOffense
-        {
-            get { return _defaultOffense; }
-            protected set { _defaultOffense = value; }
-        }
-        public int DefaultDefense
-        {
-            get { return _defaultDefense; }
-            protected set { _defaultDefense = value; }
-        }
-        public int GoldDrop
-        {
-            get { return _goldDrop; }
-            protected set { _goldDrop = value; }
-        }
+        public int MonsterID { get; protected set; }
+        public string Name { get; protected set; } = string.Empty;
+        public int HP { get; protected set; }
+        public int DefaultOffense { get; protected set; }
+        public int DefaultDefense { get; protected set; }
+        public int GoldDrop { get; protected set; }
     }
-    internal class MonstersEasyLvl : Monster
+    internal class MonstersFloor01 : Monster
     {
-        public MonstersEasyLvl(int invokeMonsterNum)
+        public MonstersFloor01(int invokeMonsterNum)
         {
             switch(invokeMonsterNum)
             {
@@ -95,9 +71,9 @@ namespace GameCharacters
             }
         }
     }
-    internal class MonstersMediumLvl : Monster
+    internal class MonstersFloor02 : Monster
     {
-        public MonstersMediumLvl(int invokeMonsterNum)
+        public MonstersFloor02(int invokeMonsterNum)
         {
             switch(invokeMonsterNum)
             {

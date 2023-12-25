@@ -2,120 +2,102 @@ using System;
 
 namespace Equipment
 {
-    abstract class Armor : IEquip
+    abstract class PlayerProtection : IEquipment
     {
-        private char _type;
-        private string _name = string.Empty;
-        private int _defenseValue;
-        private string _armEffect = string.Empty;
-        private int _armPlusProtection;
-        private int _equipmentWeight;
-        private int _equipmentPrice;
-
-        public char Type
+        public enum Rank
         {
-            get { return _type; }
-            protected set { _type = value; }
+            C,
+            B,
+            A,
+            S
         }
-        public string Name
-        {
-            get { return _name; }
-            protected set { _name = value; }
-        }
-        public int DefenseValue
-        {
-            get { return _defenseValue; }
-            protected set { _defenseValue = value; }
-        }
-        public string ArmEffect
-        {
-            get { return _armEffect; }
-            protected set { _armEffect = value; }
-        }
-        public int ArmPlusProtection
-        {
-            get { return _armPlusProtection; }
-            protected set { _armPlusProtection = value; }
-        }
-        public int EquipmentWeight
-        {
-            get { return _equipmentWeight; }
-            protected set { _equipmentWeight = value; }
-        }
-        public int EquipmentPrice
-        {
-            get { return _equipmentPrice; }
-            protected set { _equipmentPrice = value; }
-        }
+        public string Name { get; protected set; } = string.Empty;
+        public int Defense { get; protected set; }
+        public bool HasExtraDef { get; protected set; }
+        public int PlusDefense { get; protected set; }
+        public Rank EquipmentRank { get; internal set; }
+        public string EquipmentInfo { get; protected set; } = string.Empty;
+        public int EquipmentWeight { get; protected set; }
+        public int EquipmentPrice { get; protected set; }
     }
-    internal class LightArmor : Armor 
+    internal class Armor : PlayerProtection
     {
-        public LightArmor(int armorLvl)
+        public Armor(int armorLvl)
         {
             switch(armorLvl)
             {
                 case 0:
-                    this.Type = 'A';
                     this.Name = "Leather Armor";
-                    this.DefenseValue = 2;
-                    this.ArmEffect = "None";
-                    this.EquipmentWeight = 5;
+                    this.Defense = 2;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 1;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 4;
                     this.EquipmentPrice = 0;
                     break;
                 
                 case 1:
-                    this.Type = 'A';
                     this.Name = "Iron Armor";
-                    this.DefenseValue = 4;
-                    this.ArmEffect = "None";
-                    this.EquipmentWeight = 10;
-                    this.EquipmentPrice = 100;
+                    this.Defense = 5;
+                    this.HasExtraDef = false;
+                    this.PlusDefense = 0;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 6;
+                    this.EquipmentPrice = 250;
                     break;
                 
                 case 2:
-                    this.Type = 'A';
                     this.Name = "Steel Armor";
-                    this.DefenseValue = 5;
-                    this.ArmEffect = "+1 protection from Kobolds";
-                    this.ArmPlusProtection = 1;
-                    this.EquipmentWeight = 15;
-                    this.EquipmentPrice = 200;
+                    this.Defense = 8;
+                    this.HasExtraDef = false;
+                    this.PlusDefense = 0;
+                    this.EquipmentRank = Rank.B;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 8;
+                    this.EquipmentPrice = 400;
                     break;
             }
         }
     }
-    internal class Shield : Armor 
+    internal class Shield : PlayerProtection 
     {
-        public Shield(int armorLvl)
+        public Shield(int shieldLvl)
         {
-            switch(armorLvl)
+            switch(shieldLvl)
             {
                 case 0: 
-                    this.Type = 'A';
-                    this.Name = "Tin Shield";
-                    this.DefenseValue = 1;
-                    this.ArmEffect = "None";
+                    this.Name = "Leather Shield";
+                    this.Defense = 1;
+                    this.HasExtraDef = false;
+                    this.PlusDefense = 0;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
                     this.EquipmentWeight = 2;
                     this.EquipmentPrice = 0;
                     break;
                 
                 case 1: 
-                    this.Type = 'A';
-                    this.Name = "Leather Shield";
-                    this.DefenseValue = 2;
-                    this.ArmEffect = "+1 protection from goblins";
-                    this.ArmPlusProtection = 1;
-                    this.EquipmentWeight = 4;
-                    this.EquipmentPrice = 100;
+                    this.Name = "Iron Shield";
+                    this.Defense = 2;
+                    this.HasExtraDef = false;
+                    this.PlusDefense = 0;
+                    this.EquipmentRank = Rank.C;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 3;
+                    this.EquipmentPrice = 50;
                     break;
                 
                 case 2: 
-                    this.Type = 'A';
-                    this.Name = "Iron Shield";
-                    this.DefenseValue = 5;
-                    this.ArmEffect = "None";
-                    this.EquipmentWeight = 6;
-                    this.EquipmentPrice = 150;
+                    this.Name = "Steel Shield";
+                    this.Defense = 4;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 1;
+                    this.EquipmentRank = Rank.B;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 4;
+                    this.EquipmentPrice = 250;
                     break;
             }
         }

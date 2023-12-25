@@ -2,57 +2,30 @@ using System;
 
 namespace GameCharacters
 {
-    class Player : IPlayerCharacter
+    class Hero : ICharacter
     {
-        private string _name = string.Empty;
-        private int _hp;
-        private int _defaultOffense;
-        private int _defaultDefense;
-        private int _initialGold;
-
-        public string Name 
-        { 
-            get { return _name; } 
-            set { _name = value; } 
-        }
-        public int HP 
-        {   get { return _hp; } 
-            private set { _hp = value; } 
-        }
-        public int DefaultOffense 
-        {   get { return _defaultOffense; }
-            private set { _defaultOffense = value; } 
-        }
-        public int DefaultDefense 
-        {   get { return _defaultDefense; } 
-            private set { _defaultDefense = value; } 
-        }
-        public int InitialGold
+        public enum Rank
         {
-            get { return _initialGold; }
-            internal set { _initialGold = value; }
+            C,
+            B,
+            A,
+            S
         }
+        public string Name { get; internal set; }
+        public int HP { get; private set; }
+        public int DefaultOffense { get; private set; }
+        public int DefaultDefense { get; private set; }
+        public Rank HeroRank { get; internal set; }
+        public int InitialGold { get; internal set; }
 
-        public Player(string name)
+        public Hero(string name)
         {
             this.Name = name;
             this.HP = 100;
             this.DefaultOffense = 5;
             this.DefaultDefense = 5;
-            this.InitialGold = 200;
-        }
-
-        public int AttackPhase(int defPow, int weaponPow)
-        {
-            int sumDamage = 0;
-
-            return sumDamage = defPow + weaponPow;
-        }
-        public int DefensePhase(int defDef, int shieldDef, int armorDef)
-        {
-            int sumDefense = 0;
-
-            return sumDefense = defDef + shieldDef + armorDef;
+            this.HeroRank = Rank.C;
+            this.InitialGold = 100;
         }
     }
 }

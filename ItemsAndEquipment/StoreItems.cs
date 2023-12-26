@@ -4,14 +4,14 @@ namespace Equipment
 {
     abstract class Item : IConsumables
     {
-        public enum Rank
+        public enum PotionLevels
         {
             C = 25, 
             B = 50,
             A = 100,
         }
         public string Name { get; protected set; } = string.Empty;
-        public int HealRank { get; protected set; }
+        public int HealLvl { get; protected set; }
         public string ItemDescription { get; protected set; } = string.Empty;
         public int ItemPrice { get; protected set; }
     }
@@ -23,21 +23,21 @@ namespace Equipment
             {
                 case 1:
                     this.Name = "Lesser Potion";
-                    this.HealRank = (int)Rank.C;
+                    this.HealLvl = (int)PotionLevels.C;
                     this.ItemDescription = "Heals 25 of HP";
                     this.ItemPrice = 50;
                     break;
 
                 case 2:
                     this.Name = "Medium Potion";
-                    this.HealRank = (int)Rank.B;
+                    this.HealLvl = (int)PotionLevels.B;
                     this.ItemDescription = "Heals 50 of HP";
                     this.ItemPrice = 100;
                     break;
                 
                 case 3:
                     this.Name = "High Potion";
-                    this.HealRank = (int)Rank.A;
+                    this.HealLvl = (int)PotionLevels.A;
                     this.ItemDescription = "Heals 100 of HP";
                     this.ItemPrice = 250;
                     break;

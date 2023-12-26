@@ -4,7 +4,7 @@ namespace Equipment
 {
     interface IConsumables
     {
-        enum Rank
+        enum PotionLevels
         {
             C,
             B,

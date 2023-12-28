@@ -7,11 +7,11 @@ namespace GameFunctions
     {
         private static Random randomNum = new Random();
 
-        internal static Monster CreateMonster(int difficulty)
+        internal static Monster CreateMonster(int floorNum)
         {
             int monsterNum = randomNum.Next(1, 6);
 
-            switch(difficulty)
+            switch(floorNum)
             {
                 case 1:
                     return MonsterCreator.CreateEasyLvl(monsterNum);
@@ -20,7 +20,7 @@ namespace GameFunctions
                     return MonsterCreator.CreateMediumLvl(monsterNum);
                 
                 default:
-                    throw new ArgumentException("Invalid Difficuly Level");
+                    throw new ArgumentException("Invalid floor");
             }
         }
     }

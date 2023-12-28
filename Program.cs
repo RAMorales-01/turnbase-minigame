@@ -9,7 +9,12 @@ namespace TurnBasedGame
     {
         static void Main(string[] args)
         {
-            TitleScreen.GameTitleScreen();
+            //TitleScreen.GameTitleScreen();
+            Sword equipedSword = new Sword(0);
+            Shield equipedShield = new Shield(0);
+            Armor equipedArmor = new Armor(0);
+            PlayerChar player = new PlayerChar("Alex", equipedSword, equipedShield, equipedArmor);
+            PlayerTurn.Actions(player);
         }
     }
 }

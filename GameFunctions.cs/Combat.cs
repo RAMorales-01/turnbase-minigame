@@ -4,54 +4,56 @@ using Equipment;
 
 namespace GameFunctions
 {
-    internal static class Combat
+    internal static class PlayerTurn
     {
-        internal static void StartCombat()
+        internal static int Actions(PlayerChar hero)
         {
+            do
+            {
+                Console.WriteLine($"It's {hero.Name} turn");
+                Console.WriteLine("1- Attack\n2- Defend");
+                bool isInterger = int.TryParse(Console.ReadLine(), out int playerInput);
 
+                if(playerInput == 1)
+                {
+                    return AttackPlayerTurn(hero, hero.Sword!);
+                }
+                else if(playerInput == 2)
+                {
+                    return DefensePlayerTurn(hero, hero.Shield!, hero.Armor!);
+                }
+                else 
+                {
+                    Console.WriteLine("Input not valid");
+                }
+            }while(true);
         }
-        private static int AttackPlayerTurn(Hero player, Sword currentSword)
+        private static int AttackPlayerTurn(PlayerChar hero, Sword equipedSword)
         {
-            int totalDmg = 0;
+            int totalDmg = hero.DefaultOffense;
 
-            if(currentSword.HasExtraDmg == true)
-            {
-                totalDmg = player.DefaultOffense + currentSword.Damage + currentSword.PlusDamage;
-            }
+            if(equipedSword.HasExtraDmg == true)
+                totalDmg += (equipedSword.Damage + equipedSword.PlusDamage);
+            
             else
-            {
-                totalDmg = player.DefaultOffense + currentSword.Damage;
-            }
+                totalDmg += equipedSword.Damage;
 
             return totalDmg;
         }
-        private static int DefensePlayerTurn(Hero player, Shield currentShield, Armor currentArmor)
+        private static int DefensePlayerTurn(PlayerChar hero, Shield equipedShield, Armor equipedArmor)
         {
-            int totalDef = player.DefaultDefense;
-            int shieldPlus = currentShield.Defense + currentShield.PlusDefense;
-            int armorPlus = currentArmor.Defense + currentArmor.PlusDefense;
+            int baseDefense = hero.DefaultDefense;
+            int shieldDefense = CalculateEquipmentDefense(equipedShield);
+            int armorDefense = CalculateEquipmentDefense(equipedArmor);
 
-            if(currentShield.HasExtraDef == true || currentArmor.HasExtraDef == true)
-            {
-                if(currentShield.HasExtraDef == true && currentArmor.HasExtraDef == true)
-                {
-                    return totalDef += (shieldPlus + armorPlus);
-                }
-                else if(currentShield.HasExtraDef == true && currentArmor.HasExtraDef == false)
-                {
-                    return totalDef += (shieldPlus + currentArmor.Defense);
-                }
-                else
-                {
-                    return totalDef += (currentShield.Defense + armorPlus); 
-                }
-            }
-            else
-            {
-                return totalDef += currentShield.Defense + currentArmor.Defense;
-            }
+            return baseDefense + shieldDefense + armorDefense;
         }
+        private static int CalculateEquipmentDefense(PlayerProtection equipment)
+        {
+            int baseDefense = equipment.Defense;
+            int extraDefense = equipment.HasExtraDef ? equipment.PlusDefense : 0;
 
-        // Next is the monster and bosses logic
+            return baseDefense + extraDefense;
+        }
     } 
 }

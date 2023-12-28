@@ -1,26 +1,72 @@
-using System; 
+using System;
+using Equipment;
+using RankLevels;
 
 namespace GameCharacters
 {
-    class Hero : ICharacter
+    class PlayerChar : ICharacter
     {
-        public enum Rank
-        {
-            C,
-            B,
-            A,
-            S
-        }
+        private const int DefaultOffenseValue = 5;
+        private const int DefaultDefenseValue = 5;
+        private const int InitialGold = 100;
+
         public string Name { get; internal set; }
         public int HP { get; internal set; } = 100;
-        public int DefaultOffense { get; private set; } = 5;
-        public int DefaultDefense { get; private set; } = 5;
+        public int DefaultOffense { get; private set; } = DefaultOffenseValue;
+        public int DefaultDefense { get; private set; } = DefaultDefenseValue;
         public Rank HeroRank { get; internal set; } = Rank.C;
-        public int InitialGold { get; internal set; } = 100;
+        public int Gold { get; internal set; } = InitialGold;
 
-        public Hero(string name)
+        public Sword? Sword { get; private set; } = null;
+        public Shield? Shield { get; private set; } = null; 
+        public Armor? Armor { get; private set; } = null;
+
+        public PlayerChar(string name, Sword initialSword, Shield initialShield, Armor initialArmor)
         {
             this.Name = name;
+            this.Sword = initialSword;
+            this.Shield = initialShield;
+            this.Armor = initialArmor;
+        }
+
+        internal void EquipSword(Sword newSword)
+        {
+            if(newSword.EquipmentRank <= HeroRank)
+            {
+                Sword = newSword;
+                Console.WriteLine($"{Name} has equiped the {newSword.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} cannot equip the {newSword.Name}");
+                Console.WriteLine($"{Name} rank is {HeroRank}, you need a minimum rank of {newSword.EquipmentRank} to equip it");
+            }
+        }
+        internal void EquipShield(Shield newShield)
+        {
+            if(newShield.EquipmentRank <= HeroRank)
+            {
+                Shield = newShield;
+                Console.WriteLine($"{Name} has equiped the {newShield.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} cannot equip the {newShield.Name}");
+                Console.WriteLine($"{Name} rank is {HeroRank}, you need a minimum rank of {newShield.EquipmentRank} to equip it");
+            }
+        }
+        internal void EquipArmor(Armor newArmor)
+        {
+            if(newArmor.EquipmentRank <= HeroRank)
+            {
+                Armor = newArmor;
+                Console.WriteLine($"{Name} has equiped the {newArmor.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} cannot equip the {newArmor.Name}");
+                Console.WriteLine($"{Name} rank is {HeroRank}, you need a minimum rank of {newArmor.EquipmentRank} to equip it");
+            }
         }
     }
 }

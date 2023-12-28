@@ -1,16 +1,10 @@
 using System;
+using RankLevels;
 
 namespace Equipment
 {
     abstract class PlayerOffense : IEquipment
     {
-        public enum Rank
-        {
-            C,
-            B,
-            A,
-            S
-        }
         public string Name { get; protected set; } = string.Empty;
         public int Damage { get; protected set; }
         public bool HasExtraDmg { get; protected set; }

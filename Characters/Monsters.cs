@@ -106,21 +106,38 @@ namespace GameCharacters
                     break;
                     
                 case 4:
-                    this.Name = "Chief Goblin";
+                    this.Name = "Goblin Chief";
                     this.HP = 160;
                     this.DefaultOffense = 11;
-                    this.DefaultDefense = 14;
+                    this.DefaultDefense = 13;
                     this.MonsterRank = Rank.B;
                     this.GoldDrop = 120;
                     break;
                     
                 case 5:
-                    this.Name = "Chief Kobold";
+                    this.Name = "Kobold Chief";
                     this.HP = 180;
                     this.DefaultOffense = 11;
-                    this.DefaultDefense = 16;
+                    this.DefaultDefense = 15;
                     this.MonsterRank = Rank.B;
                     this.GoldDrop = 140;
+                    break;
+            }
+        }
+    }
+    internal class MonstersFloorBoss : Monster
+    {
+        public MonstersFloorBoss(int boss)
+        {
+            switch(boss)
+            {
+                case 1:
+                    this.Name = "Goblin Champion";
+                    this.HP = 300;
+                    this.DefaultOffense = 12;
+                    this.DefaultDefense = 16;
+                    this.MonsterRank = Rank.Boss;
+                    this.GoldDrop = 1000;
                     break;
             }
         }

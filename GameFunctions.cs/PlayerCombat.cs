@@ -6,6 +6,11 @@ namespace GameFunctions
 {
     internal static class PlayerTurn
     {
+        /// <summary>
+        /// Main function for the actions the player can take during his/her turn.
+        /// </summary>
+        /// <param name="hero"></param>
+        /// <returns>int value for either damage or defense</returns>
         internal static int Actions(PlayerChar hero)
         {
             do
@@ -28,6 +33,14 @@ namespace GameFunctions
                 }
             }while(true);
         }
+
+        /// <summary>
+        /// Calculates the damage the player will do to the enemy during his/her
+        /// turn.
+        /// </summary>
+        /// <param name="hero"></param>
+        /// <param name="equipedSword"></param>
+        /// <returns>int value for damage</returns>
         private static int AttackPlayerTurn(PlayerChar hero, Sword equipedSword)
         {
             int totalDmg = hero.DefaultOffense;
@@ -40,6 +53,15 @@ namespace GameFunctions
 
             return totalDmg;
         }
+
+        /// <summary>
+        /// Returns the damage reduction total value after the helper method 
+        /// calculations.
+        /// </summary>
+        /// <param name="hero"></param>
+        /// <param name="equipedShield"></param>
+        /// <param name="equipedArmor"></param>
+        /// <returns>int value for damage reduction</returns>
         private static int DefensePlayerTurn(PlayerChar hero, Shield equipedShield, Armor equipedArmor)
         {
             int baseDefense = hero.DefaultDefense;
@@ -48,6 +70,13 @@ namespace GameFunctions
 
             return baseDefense + shieldDefense + armorDefense;
         }
+
+        /// <summary>
+        /// Helper method to calculate the damage reduction the player take from the  
+        /// monster during its turn.
+        /// </summary>
+        /// <param name="equipment"></param>
+        /// <returns>int value for damage reduction</returns>
         private static int CalculateEquipmentDefense(PlayerProtection equipment)
         {
             int baseDefense = equipment.Defense;

@@ -4,6 +4,7 @@ namespace GameCharacters
 {
     abstract class Monster : IMonster
     {
+        #region Monster class Properties
         public enum Rank
         {
             C,
@@ -18,9 +19,11 @@ namespace GameCharacters
         public int DefaultDefense { get; protected set; }
         public Rank MonsterRank { get; protected set; }
         public int GoldDrop { get; protected set; }
+        #endregion
     }
     internal class MonstersFloor01 : Monster
     {
+        #region Floor 1 Monsters
         public MonstersFloor01(int monster)
         {
             switch(monster)
@@ -71,9 +74,11 @@ namespace GameCharacters
                     break;
             }
         }
+        #endregion
     }
     internal class MonstersFloor02 : Monster
     {
+        #region Floor 2 Monsters
         public MonstersFloor02(int monster)
         {
             switch(monster)
@@ -124,9 +129,11 @@ namespace GameCharacters
                     break;
             }
         }
+        #endregion
     }
     internal class MonstersFloorBoss : Monster
     {
+        #region Boss Monsters
         public MonstersFloorBoss(int boss)
         {
             switch(boss)
@@ -141,5 +148,6 @@ namespace GameCharacters
                     break;
             }
         }
+        #endregion
     }
 }

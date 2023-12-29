@@ -5,8 +5,12 @@ namespace GameFunctions
 {
     internal static class FloorEnemyTurn
     {
+        /// <summary>
+        /// randomNum is used to simulate the creature behavior while enum EnemyActions are the posible actions 
+        /// the monster can take, currently the monster can only attack or defend.
+        /// </summary>
         private static Random randomNum = new Random(); 
-        enum EnemyActions // Determines current posible actions the monster can take
+        enum EnemyActions 
         {
             Attack = 1,
             Defend = 2

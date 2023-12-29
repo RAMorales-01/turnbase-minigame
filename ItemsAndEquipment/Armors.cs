@@ -5,6 +5,7 @@ namespace Equipment
 {
     abstract class PlayerProtection : IEquipment
     {
+        #region Equipment class properties
         public string Name { get; protected set; } = string.Empty;
         public int Defense { get; protected set; }
         public bool HasExtraDef { get; protected set; }
@@ -13,9 +14,11 @@ namespace Equipment
         public string EquipmentInfo { get; protected set; } = string.Empty;
         public int EquipmentWeight { get; protected set; }
         public int EquipmentPrice { get; protected set; }
+        #endregion
     }
     internal class Armor : PlayerProtection
     {
+        #region Posible armor constructors
         public Armor(int armorLvl)
         {
             switch(armorLvl)
@@ -54,9 +57,11 @@ namespace Equipment
                     break;
             }
         }
+        #endregion
     }
     internal class Shield : PlayerProtection 
     {
+        #region Posible shield constructors
         public Shield(int shieldLvl)
         {
             switch(shieldLvl)
@@ -95,5 +100,6 @@ namespace Equipment
                     break;
             }
         }
+        #endregion
     }
 }

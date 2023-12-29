@@ -5,6 +5,7 @@ namespace Equipment
 {
     abstract class PlayerOffense : IEquipment
     {
+        #region Weapon class properties
         public string Name { get; protected set; } = string.Empty;
         public int Damage { get; protected set; }
         public bool HasExtraDmg { get; protected set; }
@@ -13,9 +14,11 @@ namespace Equipment
         public string EquipmentInfo { get; protected set; } = string.Empty;
         public int EquipmentWeight { get; protected set; }
         public int EquipmentPrice { get; protected set; }
+        #endregion
     }
     internal class Sword : PlayerOffense 
     {
+        #region Posible weapon constructors
         public Sword(int swordLvl)
         {
             switch(swordLvl)
@@ -54,5 +57,6 @@ namespace Equipment
                     break;
             }
         }
+        #endregion
     }
 }

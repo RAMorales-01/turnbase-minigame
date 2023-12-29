@@ -5,8 +5,15 @@ namespace GameFunctions
 {
     internal class MonsterFactory
     {
+        #region Monster creation main function
         private static Random randomNum = new Random();
-
+        
+        /// <summary>
+        /// Main function for the creation of monsters divided by floor.
+        /// </summary>
+        /// <param name="floorNum"></param>
+        /// <returns>Monster instance</returns>
+        /// <exception cref="ArgumentException"></exception>
         internal static Monster CreateMonster(int floorNum)
         {
             int monsterNum = randomNum.Next(1, 6);
@@ -14,19 +21,27 @@ namespace GameFunctions
             switch(floorNum)
             {
                 case 1:
-                    return MonsterCreator.CreateEasyLvl(monsterNum);
+                    return MonsterCreator.CreateMonsterFloor1(monsterNum);
                 
                 case 2:
-                    return MonsterCreator.CreateMediumLvl(monsterNum);
+                    return MonsterCreator.CreateMonsterFloor2(monsterNum);
                 
                 default:
                     throw new ArgumentException("Invalid floor");
             }
         }
+        #endregion
     }
     internal static class MonsterCreator
     {
-        internal static Monster CreateEasyLvl(int monster)
+        #region Floor 1 monster creation
+        /// <summary>
+        /// Creates monster instance for floor 1 of the tower.
+        /// </summary>
+        /// <param name="monster"></param>
+        /// <returns>Monster instance</returns>
+        /// <exception cref="ArgumentException"></exception>
+        internal static Monster CreateMonsterFloor1(int monster)
         {
             switch(monster)
             {
@@ -49,7 +64,16 @@ namespace GameFunctions
                     throw new ArgumentException("Invalid random number for easy monsters");
             }
         }
-        internal static Monster CreateMediumLvl(int monster)
+        #endregion
+
+        #region Floor 2 monster creation
+        /// <summary>
+        /// Creates monster instance for floor 2 of the tower.
+        /// </summary>
+        /// <param name="monster"></param>
+        /// <returns>Monster instance</returns>
+        /// <exception cref="ArgumentException"></exception>
+        internal static Monster CreateMonsterFloor2(int monster)
         {
             switch(monster)
             {
@@ -72,5 +96,6 @@ namespace GameFunctions
                     throw new ArgumentException("Invalid random number for easy monsters");
             }
         }
+        #endregion
     }
 }

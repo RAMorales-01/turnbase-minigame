@@ -6,6 +6,7 @@ namespace GameCharacters
 {
     class PlayerChar : ICharacter
     {
+        #region Player character properties
         private const int DefaultOffenseValue = 5;
         private const int DefaultDefenseValue = 5;
         private const int InitialGold = 100;
@@ -20,7 +21,9 @@ namespace GameCharacters
         public Sword? Sword { get; private set; } = null;
         public Shield? Shield { get; private set; } = null; 
         public Armor? Armor { get; private set; } = null;
+        #endregion
 
+        #region Player character constructor
         public PlayerChar(string name, Sword initialSword, Shield initialShield, Armor initialArmor)
         {
             this.Name = name;
@@ -29,6 +32,9 @@ namespace GameCharacters
             this.Armor = initialArmor;
         }
 
+        #endregion
+
+        #region Player methods
         internal void EquipSword(Sword newSword)
         {
             if(newSword.EquipmentRank <= HeroRank)
@@ -68,5 +74,6 @@ namespace GameCharacters
                 Console.WriteLine($"{Name} rank is {HeroRank}, you need a minimum rank of {newArmor.EquipmentRank} to equip it");
             }
         }
+        #endregion
     }
 }

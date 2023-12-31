@@ -55,6 +55,39 @@ namespace Equipment
                     this.EquipmentWeight = 8;
                     this.EquipmentPrice = 400;
                     break;
+                
+                case 3:
+                    this.Name = "Mithril Armor";
+                    this.Defense = 10;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 2;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 6;
+                    this.EquipmentPrice = 800;
+                    break;
+                
+                case 4:
+                    this.Name = "Dragon Knight Armor";
+                    this.Defense = 12;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 2;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 10;
+                    this.EquipmentPrice = 1800;
+                    break;
+                
+                case 5:
+                    this.Name = "Luminary Armor";
+                    this.Defense = 15;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 5;
+                    this.EquipmentRank = Rank.S;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 1;
+                    this.EquipmentPrice = 10000;
+                    break;
             }
         }
         #endregion
@@ -97,6 +130,39 @@ namespace Equipment
                     this.EquipmentInfo = " ";
                     this.EquipmentWeight = 4;
                     this.EquipmentPrice = 250;
+                    break;
+
+                case 3: 
+                    this.Name = "Mithril Shield";
+                    this.Defense = 5;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 2;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 6;
+                    this.EquipmentPrice = 500;
+                    break;
+                
+                case 4:
+                    this.Name = "Dragon Knight Shield";
+                    this.Defense = 6;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 2;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 6;
+                    this.EquipmentPrice = 1000;
+                    break;
+
+                case 5:
+                    this.Name = "Lunar Shield";
+                    this.Defense = 7;
+                    this.HasExtraDef = true;
+                    this.PlusDefense = 3;
+                    this.EquipmentRank = Rank.S;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 1;
+                    this.EquipmentPrice = 2500;
                     break;
             }
         }

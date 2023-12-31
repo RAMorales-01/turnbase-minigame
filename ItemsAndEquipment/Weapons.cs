@@ -41,7 +41,7 @@ namespace Equipment
                     this.PlusDamage = 0;
                     this.EquipmentRank = Rank.C;
                     this.EquipmentInfo = " ";
-                    this.EquipmentWeight = 3;
+                    this.EquipmentWeight = 4;
                     this.EquipmentPrice = 150;
                     break;
                 
@@ -52,8 +52,41 @@ namespace Equipment
                     this.PlusDamage = 1;
                     this.EquipmentRank = Rank.B;
                     this.EquipmentInfo = " ";
-                    this.EquipmentWeight = 5;
+                    this.EquipmentWeight = 6;
                     this.EquipmentPrice = 350;
+                    break;
+                
+                case 3:
+                    this.Name = "Mithril Sword";
+                    this.Damage = 8;
+                    this.HasExtraDmg = true;
+                    this.PlusDamage = 2;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 5;
+                    this.EquipmentPrice = 850; 
+                    break;
+                
+                case 4: 
+                    this.Name = "Dragonlord Sword";
+                    this.Damage = 10;
+                    this.HasExtraDmg = true;
+                    this.PlusDamage = 3;
+                    this.EquipmentRank = Rank.A;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 8;
+                    this.EquipmentPrice = 1000;
+                    break;
+
+                case 5:
+                    this.Name = "Soulrender Sword";
+                    this.Damage = 10;
+                    this.HasExtraDmg = true;
+                    this.PlusDamage = 5;
+                    this.EquipmentRank = Rank.S;
+                    this.EquipmentInfo = " ";
+                    this.EquipmentWeight = 1;
+                    this.EquipmentPrice = 5000;
                     break;
             }
         }

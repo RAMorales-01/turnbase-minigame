@@ -4,9 +4,9 @@ namespace RankLevels
 {
     public enum Rank
     {
-        C,
-        B,
-        A,
-        S
+        C = 1,
+        B = 2,
+        A = 3,
+        S = 4
     }
 }

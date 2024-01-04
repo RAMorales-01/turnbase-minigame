@@ -72,7 +72,7 @@ namespace Equipment
                     this.Defense = 12;
                     this.HasExtraDef = true;
                     this.PlusDefense = 2;
-                    this.EquipmentRank = Rank.A;
+                    this.EquipmentRank = Rank.S;
                     this.EquipmentInfo = " ";
                     this.EquipmentWeight = 10;
                     this.EquipmentPrice = 1800;
@@ -83,7 +83,7 @@ namespace Equipment
                     this.Defense = 15;
                     this.HasExtraDef = true;
                     this.PlusDefense = 5;
-                    this.EquipmentRank = Rank.S;
+                    this.EquipmentRank = Rank.SS;
                     this.EquipmentInfo = " ";
                     this.EquipmentWeight = 1;
                     this.EquipmentPrice = 10000;
@@ -148,7 +148,7 @@ namespace Equipment
                     this.Defense = 6;
                     this.HasExtraDef = true;
                     this.PlusDefense = 2;
-                    this.EquipmentRank = Rank.A;
+                    this.EquipmentRank = Rank.S;
                     this.EquipmentInfo = " ";
                     this.EquipmentWeight = 6;
                     this.EquipmentPrice = 1000;
@@ -159,7 +159,7 @@ namespace Equipment
                     this.Defense = 7;
                     this.HasExtraDef = true;
                     this.PlusDefense = 3;
-                    this.EquipmentRank = Rank.S;
+                    this.EquipmentRank = Rank.SS;
                     this.EquipmentInfo = " ";
                     this.EquipmentWeight = 1;
                     this.EquipmentPrice = 2500;

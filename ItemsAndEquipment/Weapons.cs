@@ -29,7 +29,7 @@ namespace Equipment
                     this.HasExtraDmg = false;
                     this.PlusDamage = 0;
                     this.EquipmentRank = Rank.C;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentInfo = "Sword covered in rust, it is in very bad shape";
                     this.EquipmentWeight = 2;
                     this.EquipmentPrice = 0;
                     break;
@@ -40,7 +40,7 @@ namespace Equipment
                     this.HasExtraDmg = false;
                     this.PlusDamage = 0;
                     this.EquipmentRank = Rank.C;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentInfo = "Sword made of the highest quality iron, perfect for beginners";
                     this.EquipmentWeight = 4;
                     this.EquipmentPrice = 150;
                     break;
@@ -51,7 +51,7 @@ namespace Equipment
                     this.HasExtraDmg = true;
                     this.PlusDamage = 1;
                     this.EquipmentRank = Rank.B;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentInfo = "Sword made of steel forged on high temperature, +1 of extra dmg";
                     this.EquipmentWeight = 6;
                     this.EquipmentPrice = 350;
                     break;
@@ -62,7 +62,7 @@ namespace Equipment
                     this.HasExtraDmg = true;
                     this.PlusDamage = 2;
                     this.EquipmentRank = Rank.A;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentInfo = "Sword made of the mythical material forged by the elven smiths, +2 of extra dmg";
                     this.EquipmentWeight = 5;
                     this.EquipmentPrice = 850; 
                     break;
@@ -72,8 +72,8 @@ namespace Equipment
                     this.Damage = 10;
                     this.HasExtraDmg = true;
                     this.PlusDamage = 3;
-                    this.EquipmentRank = Rank.A;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentRank = Rank.S;
+                    this.EquipmentInfo = "Sword used by the lord of the dragons, only the strongest warriors can use this blade, +3 of extra dmg";
                     this.EquipmentWeight = 8;
                     this.EquipmentPrice = 1000;
                     break;
@@ -83,8 +83,8 @@ namespace Equipment
                     this.Damage = 10;
                     this.HasExtraDmg = true;
                     this.PlusDamage = 5;
-                    this.EquipmentRank = Rank.S;
-                    this.EquipmentInfo = " ";
+                    this.EquipmentRank = Rank.SS;
+                    this.EquipmentInfo = "Sword of legend known as the slayer of gods, strong as a hurricane light as a feather, +5 of extra dmg";
                     this.EquipmentWeight = 1;
                     this.EquipmentPrice = 5000;
                     break;

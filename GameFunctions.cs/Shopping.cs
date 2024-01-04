@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using Equipment;
 using GameCharacters;
+using RankLevels;
 
 namespace GameFunctions
 {
@@ -37,18 +38,16 @@ namespace GameFunctions
         {
             internal static object? HandleShoppingChoice(PlayerChar player, ItemCategory selectedCategory)
             {
-                char playerRank = (char)player.HeroRank;
-
                 switch(selectedCategory)
                 {
                     case ItemCategory.Weapons:
-                        return BuyWeapon(playerRank);
+                        return BuyWeapon(player);
 
                     case ItemCategory.Protection:
-                        return BuyProtection(playerRank);
+                        return BuyProtection(player);
 
                     case ItemCategory.Healing:
-                        return BuyHealing(playerRank);
+                        return BuyHealing(player);
 
                     default:
                         Console.WriteLine("Input not valid, please try again");
@@ -57,23 +56,58 @@ namespace GameFunctions
 
                 return null;
             }
-            internal static Sword? BuyWeapon(char playerRank)
+            internal static Sword? BuyWeapon(PlayerChar player)
             {
-                if(playerRank.Equals('C'))
+                Console.Clear();
+                Console.WriteLine("With your current Rank you are able to buy this sword: \n");
+
+                switch(player.HeroRank)
                 {
-                   
+                    case Rank.C:
+                        Sword rankC = new Sword(1);
+                        SwordInfo(rankC);
+                        return rankC;
+                    
+                    case Rank.B:
+                        Sword rankB = new Sword(2);
+                        SwordInfo(rankB);
+                        return rankB;
+                    
+                    case Rank.A:
+                        Sword rankA = new Sword(3);
+                        SwordInfo(rankA);
+                        return rankA;
+                    
+                    case Rank.S:
+                        Sword rankS = new Sword(4);
+                        SwordInfo(rankS);
+                        return rankS;
+                    
+                    case Rank.SS:
+                        Sword rankSS = new Sword(5);
+                        SwordInfo(rankSS);
+                        return rankSS;
+
+                    default:
+                        return null;
                 }
+            }
+            internal static PlayerProtection? BuyProtection(PlayerChar player)
+            {
                 return null;
             }
-            internal static PlayerProtection? BuyProtection(char playerRank)
+            internal static HealingItems? BuyHealing(PlayerChar player)
             {
-                Console.WriteLine("Test");
+                Console.WriteLine("These are 3 types of healing potions currently availables");
                 return null;
             }
-            internal static HealingItems? BuyHealing(char playerRank)
+            private static void SwordInfo(Sword currentRankSword)
             {
-                Console.WriteLine("Test");
-                return null;
+                Console.WriteLine($"{currentRankSword.Name}\n");
+                Console.WriteLine($"Info: {currentRankSword.EquipmentInfo}");
+                Console.WriteLine($"Power: {currentRankSword.Damage}");
+                Console.WriteLine($"Weight: {currentRankSword.EquipmentWeight} kgs");
+                Console.WriteLine($"Price: {currentRankSword.EquipmentPrice} gold");
             }
         }
     }

@@ -13,31 +13,32 @@ namespace GameFunctions
     }
     internal class EquipmentItemStore
     {
-        internal static object Shop(PlayerChar playerRank)
+        internal static object? Shop(PlayerChar player)
         {
             Console.Clear();
             Console.WriteLine("What are you buying?\n");
-            Thread.Sleep(1000);
-            Console.WriteLine("1- Weapons\n2- Shield/Armor\n3- Healing Items");
+            Console.WriteLine("1- Weapons\n2- Shield/Armor\n3- Healing Items\n");
             Console.Write(": ");
             string? input = Console.ReadLine();
             
             if(!int.TryParse(input, out int choice))
             {
-                Console.WriteLine("Input cannot be void or empty, press ENTER to try again");
+                Console.WriteLine("Input not valid, you must choose only the presented options");
             }
             else
             {
                 ItemCategory selectedCategory = (ItemCategory)choice;
-                return Shopping.HandleShoppingChoice(playerRank, selectedCategory);
+                return Shopping.HandleShoppingChoice(player, selectedCategory);
             }
 
             return null;
         }
         internal class Shopping
         {
-            internal static object HandleShoppingChoice(PlayerChar playerRank, ItemCategory selectedCategory)
+            internal static object? HandleShoppingChoice(PlayerChar player, ItemCategory selectedCategory)
             {
+                char playerRank = (char)player.HeroRank;
+
                 switch(selectedCategory)
                 {
                     case ItemCategory.Weapons:
@@ -56,16 +57,22 @@ namespace GameFunctions
 
                 return null;
             }
-            internal static PlayerOffense BuyWeapon(PlayerChar playerRank)
+            internal static Sword? BuyWeapon(char playerRank)
             {
+                if(playerRank.Equals('C'))
+                {
+                   
+                }
                 return null;
             }
-            internal static PlayerProtection BuyProtection(PlayerChar playerRank)
+            internal static PlayerProtection? BuyProtection(char playerRank)
             {
+                Console.WriteLine("Test");
                 return null;
             }
-            internal static HealingItems BuyHealing(PlayerChar playerRank)
+            internal static HealingItems? BuyHealing(char playerRank)
             {
+                Console.WriteLine("Test");
                 return null;
             }
         }

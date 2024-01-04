@@ -20,26 +20,26 @@ namespace Equipment
             this.EquipmentPrice = price;
         }
     }
-    abstract class PlayerOffensiveEq : PlayerEquipment
+    abstract class PlayerOffensiveEquip : PlayerEquipment
     {
         public int Damage { get; protected set; }
         public bool HasExtraDmg { get; protected set; }
         public int PlusDamage { get; protected set; }
 
-        public PlayerOffensiveEq(string name, Rank rank, string info, int weight, int price, int dmg, bool hasExtra, int plusDmg) : base(name, rank, info, weight, price)
+        public PlayerOffensiveEquip(string name, Rank rank, string info, int weight, int price, int dmg, bool hasExtra, int plusDmg) : base(name, rank, info, weight, price)
         {
             this.Damage = dmg;
             this.HasExtraDmg = hasExtra;
             this.PlusDamage = plusDmg;
         }
     }
-    abstract class PlayerDefensiveEq : PlayerEquipment
+    abstract class PlayerDefensiveEquip : PlayerEquipment
     {
         public int Protection { get; protected set; }
         public bool HasExtraDef { get; protected set; }
         public int PlusDefense { get; protected set; }
 
-        public PlayerDefensiveEq(string name, Rank rank, string info, int weight, int price, int protection, bool hasExtra, int plusProtection) : base(name, rank, info, weight, price)
+        public PlayerDefensiveEquip(string name, Rank rank, string info, int weight, int price, int protection, bool hasExtra, int plusProtection) : base(name, rank, info, weight, price)
         {
             this.Protection = protection;
             this.HasExtraDef = hasExtra;

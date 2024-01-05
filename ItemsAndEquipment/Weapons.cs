@@ -40,7 +40,7 @@ namespace Equipment
                     this.HasExtraDmg = false;
                     this.PlusDamage = 0;
                     this.EquipmentRank = Rank.C;
-                    this.EquipmentInfo = "Sword made of the highest quality iron, perfect for beginners";
+                    this.EquipmentInfo = "Sword made of iron of the highest quality, perfect for beginners";
                     this.EquipmentWeight = 4;
                     this.EquipmentPrice = 150;
                     break;

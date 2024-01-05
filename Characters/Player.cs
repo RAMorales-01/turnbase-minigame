@@ -9,7 +9,7 @@ namespace GameCharacters
         #region Player character properties
         private const int DefaultOffenseValue = 5;
         private const int DefaultDefenseValue = 5;
-        private const int InitialGold = 100;
+        private const int InitialGold = 1000;
 
         public string Name { get; internal set; }
         public int HP { get; internal set; } = 100;

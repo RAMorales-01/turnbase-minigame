@@ -39,7 +39,7 @@ namespace GameFunctions
                 switch(selectedCategory)
                 {
                     case ItemCategory.Weapons:
-                        BuyWeapon(player);
+                        BuySword(player);
                         break;
 
                     case ItemCategory.Protection:
@@ -55,8 +55,11 @@ namespace GameFunctions
                         break;
                 }
             }
-            internal static void BuyWeapon(PlayerChar player)
+            internal static void BuySword(PlayerChar player)
             {
+                bool buyEquipment;
+                int costEquipment = 0;
+
                 Console.Clear();
                 Console.WriteLine("With your current Rank you are able to buy this weapon:\n");
 
@@ -64,7 +67,14 @@ namespace GameFunctions
                 {
                     case Rank.C:
                         Sword rankC = new Sword(1);
+                        costEquipment = rankC.EquipmentPrice;
                         SwordInfo(rankC);
+                        buyEquipment = BuyConfirmation(player, costEquipment);
+                        if(buyEquipment == true)
+                        {
+                            player.EquipSword(rankC);
+                            player.Gold -= costEquipment;
+                        }
                         break;
                     
                     case Rank.B:
@@ -129,9 +139,9 @@ namespace GameFunctions
             }
             private static void SwordInfo(Sword currentRankSword)
             {
-                Console.WriteLine($"{currentRankSword.Name}\n");
-                Console.WriteLine($"Info: {currentRankSword.EquipmentInfo}");
-                Console.WriteLine($"Power: {currentRankSword.Damage}");
+                Console.WriteLine($"\t\t\t{currentRankSword.Name}\n");
+                Console.WriteLine($"\"{currentRankSword.EquipmentInfo}\"");
+                Console.WriteLine($"\nDamage: {currentRankSword.Damage}");
                 Console.WriteLine($"Weight: {currentRankSword.EquipmentWeight} kgs");
                 Console.WriteLine($"Price: {currentRankSword.EquipmentPrice} gold");
             }
@@ -141,13 +151,13 @@ namespace GameFunctions
                 Console.WriteLine($"Price: {potion.ItemPrice} gold");
             }
             
-            private static bool BuySword(PlayerChar player, Sword currentRankSword)
+            private static bool BuyConfirmation(PlayerChar player, int costEquipment)
             {
                 string? input = string.Empty;
 
                 do
                 {
-                    Console.WriteLine("Do you wish to buy it?");
+                    Console.WriteLine("\nDo you wish to buy it?");
                     Console.Write("Y/N: ");
                     input = Console.ReadLine()?.ToUpper();
 
@@ -155,19 +165,24 @@ namespace GameFunctions
                     {
                         Console.WriteLine("\nInput cannot be void or empty, please try again\n");
                     }
-                    else if(input != "Y" || input != "N")
+                    else if(input.Equals("Y") || input.Equals("N"))
                     {
-                        Console.WriteLine("\nInput not valid, must be Y or N only, please try again\n");
+                        break;
                     }
                     else
                     {
-                        break;
+                        Console.WriteLine("\nInput not valid, must be Y or N only, please try again\n");
                     } 
                 }while(true);
 
-                if(input == "Y")
+                if(input == "Y" && player.Gold >= costEquipment)
                 {
                     return true;
+                }
+                else if(input == "Y" && player.Gold < costEquipment)
+                {
+                    Console.WriteLine("Sorry you don't have enough gold");
+                    return false;
                 }
                 else
                 {

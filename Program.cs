@@ -15,9 +15,10 @@ namespace TurnBasedGame
             Shield currentShield = new Shield(0);
             Armor currentArmor = new Armor(0);
             PlayerChar test = new PlayerChar("Alex", currentSword, currentShield, currentArmor);
-            //Console.WriteLine($"TEST: {test.HeroRank}");
+            Console.WriteLine($"{test.Name} current sword is: {test.Sword?.Name}");
+            Console.ReadKey();
             EquipmentItemStore.Shop(test);
-            
+            Console.WriteLine($"{test.Name} current sword is: {test.Sword?.Name}");
         }
     }
 }
